@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family:'Times New Roman', Times, serif;
+            justify-content: center;
+            margin-top: 80px;
+            display: grid;
+            background-color: darkkhaki;
+        }
+        .calculator {
+            padding: 80px;
+            border: 2px solid #402b2b;
+            border-radius: 10px;
+            text-align: center;
+            background-color: beige;
+        }
+        input {
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 10px; 
+           
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <h2>Calculator</h2>
+
+    <input type="number" id="num1" placeholder="Enter First Number"><br>
+    <input type="number" id="num2" placeholder="Enter Second Number"><br>
+
+    <button onclick="calculate('+')">+</button>
+    <button onclick="calculate('-')">-</button>
+    <button onclick="calculate('*')">*</button>
+    <button onclick="calculate('/')">/</button>
+
+    <h3 id="result">Result:</h3>
+</div>
+
+<script>
+function calculate(operator) {
+    let a = Number(document.getElementById("num1").value);
+    let b = Number(document.getElementById("num2").value);
+    let result;
+
+    switch(operator) {
+        case '+': result = a + b; break;
+        case '-': result = a - b; break;
+        case '*': result = a * b; break;
+        case '/':result = (b !== 0) ? a / b : "Cannot divide by zero"; break;
+    }
+    document.getElementById("result").innerHTML = "Result: " + result;
+}
+</script>
+</body>
+</html>
